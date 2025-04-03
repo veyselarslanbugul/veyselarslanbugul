@@ -1,0 +1,369 @@
+.profile-header {
+  background-color: var(--card-background);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.profile-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 20px 20px;
+  position: relative;
+  background: transparent;
+  border-radius: 15px 15px 0 0;
+  z-index: 1;
+}
+
+.profile-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-color: var(--card-background);
+  z-index: -1;
+}
+
+.profile-image-container {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+  box-shadow: none;
+  border: 3px solid var(--card-background);
+  background-color: var(--card-background);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-lottie {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: 4px solid var(--card-background);
+  background-color: var(--card-background);
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid var(--card-background);
+  object-fit: cover;
+  animation: pulseAndFade 1.2s ease-out;
+}
+
+@keyframes pulseAndFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.profile-actions {
+  position: relative;
+  z-index: 1;
+}
+
+.follow-button {
+  background-color: var(--button-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.twitter-icon {
+  font-size: 16px;
+}
+
+.profile-info {
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  background-color: var(--card-background);
+  border-radius: 8px;
+  margin: 10px;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.profile-info::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: none;
+  z-index: -1;
+  opacity: 0.1;
+}
+
+.profile-name {
+  font-size: 28px;
+  margin: 0 0 5px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-primary);
+  color: var(--text-color);
+  text-shadow: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  animation: codeHighlight 3s infinite;
+}
+
+@keyframes codeHighlight {
+  0% {
+    color: var(--text-color);
+  }
+  30% {
+    color: var(--text-secondary);
+  }
+  60% {
+    color: var(--text-color);
+  }
+  100% {
+    color: var(--text-color);
+  }
+}
+
+.verified-badge {
+  color: white;
+  background-color: #3498db;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  box-shadow: none;
+  position: relative;
+  top: -2px;
+}
+
+.profile-tagline {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin-bottom: 25px;
+  font-weight: 400;
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.cursor-blink {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 0.7s infinite;
+  color: var(--button-color);
+  font-weight: bold;
+}
+
+.cursor-hidden {
+  display: none;
+}
+
+.sparkle {
+  display: inline-block;
+  animation: sparkleAnimation 1.5s ease;
+  margin-left: 5px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes sparkleAnimation {
+  0% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.profile-bio {
+  margin: 0 auto 15px auto;
+  line-height: 1.6;
+  text-align: center;
+  position: relative;
+  font-family: var(--font-secondary);
+  font-size: 14px;
+  max-width: 500px;
+  color: var(--text-secondary);
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--button-color) }
+}
+
+@keyframes blink {
+  from, to { opacity: 1 }
+  50% { opacity: 0 }
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: var(--card-background);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  box-shadow: none;
+  margin: 0 5px;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  z-index: 10;
+  position: relative;
+}
+
+.social-btn svg {
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+}
+
+.social-btn:hover {
+  transform: translateY(-5px);
+}
+
+.social-btn.github:hover {
+  background-color: #24292e;
+  color: white;
+}
+
+.social-btn.linkedin:hover {
+  background-color: #0077b5;
+  color: white;
+}
+
+.social-btn.twitter:hover {
+  background-color: #1da1f2;
+  color: white;
+}
+
+.social-btn.email:hover {
+  background-color: #ea4335;
+  color: white;
+}
+
+.subscribe-section {
+  padding: 20px;
+  background-color: var(--card-background);
+  text-align: center;
+}
+
+.subscribe-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.subscribe-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.subscribe-input {
+  padding: 10px 15px;
+  border-radius: 30px;
+  border: 1px solid var(--border-color);
+  background-color: var(--card-background);
+  color: var(--text-color);
+  width: 250px;
+  font-family: var(--font-secondary);
+}
+
+.subscribe-button {
+  padding: 10px 20px;
+  border-radius: 30px;
+  background-color: var(--button-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.subscribe-button:hover {
+  transform: translateY(-2px);
+  background-color: var(--button-color);
+}
+
+@media (max-width: 768px) {
+  .profile-image-container {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .profile-name {
+    font-size: 24px;
+  }
+  
+  .profile-tagline {
+    font-size: 14px;
+  }
+  
+  .profile-bio {
+    font-size: 13px;
+  }
+  
+  .social-btn, .social-buttons .social-btn {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .subscribe-form {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .subscribe-input {
+    width: 100%;
+    max-width: 300px;
+  }
+}

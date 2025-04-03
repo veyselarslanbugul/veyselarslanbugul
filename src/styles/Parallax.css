@@ -1,0 +1,82 @@
+/* Paralaks efektleri için CSS */
+
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.parallax-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(108, 92, 231, 0.05) 0%, rgba(108, 92, 231, 0) 70%);
+  z-index: 1;
+}
+
+.parallax-element {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.parallax-circle {
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(108, 92, 231, 0.1) 0%, rgba(108, 92, 231, 0.05) 100%);
+  box-shadow: 0 4px 15px rgba(108, 92, 231, 0.1);
+}
+
+.parallax-square {
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(108, 92, 231, 0.08) 0%, rgba(108, 92, 231, 0.03) 100%);
+  box-shadow: 0 4px 15px rgba(108, 92, 231, 0.08);
+  transform: rotate(15deg);
+}
+
+.parallax-triangle {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 86px solid rgba(108, 92, 231, 0.05);
+  filter: drop-shadow(0 4px 15px rgba(108, 92, 231, 0.08));
+}
+
+.parallax-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Karanlık mod için paralaks stilleri */
+body.dark-mode .parallax-circle {
+  background: linear-gradient(135deg, rgba(162, 155, 254, 0.1) 0%, rgba(162, 155, 254, 0.05) 100%);
+  box-shadow: 0 4px 15px rgba(162, 155, 254, 0.1);
+}
+
+body.dark-mode .parallax-square {
+  background: linear-gradient(135deg, rgba(162, 155, 254, 0.08) 0%, rgba(162, 155, 254, 0.03) 100%);
+  box-shadow: 0 4px 15px rgba(162, 155, 254, 0.08);
+}
+
+body.dark-mode .parallax-triangle {
+  border-bottom-color: rgba(162, 155, 254, 0.05);
+  filter: drop-shadow(0 4px 15px rgba(162, 155, 254, 0.08));
+}
+
+body.dark-mode .parallax-bg::before {
+  background: radial-gradient(circle at center, rgba(162, 155, 254, 0.05) 0%, rgba(162, 155, 254, 0) 70%);
+}

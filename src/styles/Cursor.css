@@ -1,0 +1,77 @@
+/* Özel imleç stilleri */
+.cursor-dot,
+.cursor-outline {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 9999;
+  transition: opacity 0.3s ease;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--button-color);
+  transition: transform 0.1s ease-out;
+}
+
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--button-color);
+  background-color: rgba(108, 92, 231, 0.05);
+  transition: transform 0.3s ease-out, width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+}
+
+/* Tıklama efekti */
+.cursor-dot.active {
+  transform: scale(1.5);
+}
+
+.cursor-outline.active {
+  transform: scale(0.8);
+  background-color: rgba(108, 92, 231, 0.15);
+}
+
+/* Hover efekti */
+.cursor-hover .cursor-dot {
+  transform: scale(1.5);
+  background-color: rgba(108, 92, 231, 0.8);
+}
+
+.cursor-hover .cursor-outline {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(108, 92, 231, 0.1);
+  border-color: rgba(108, 92, 231, 0.5);
+}
+
+/* Karanlık mod uyumluluğu */
+body.dark-mode .cursor-dot {
+  background-color: var(--button-color);
+}
+
+body.dark-mode .cursor-outline {
+  border-color: var(--button-color);
+  background-color: rgba(162, 155, 254, 0.05);
+}
+
+body.dark-mode .cursor-hover .cursor-dot {
+  background-color: rgba(162, 155, 254, 0.8);
+}
+
+body.dark-mode .cursor-hover .cursor-outline {
+  background-color: rgba(162, 155, 254, 0.1);
+  border-color: rgba(162, 155, 254, 0.5);
+}
+
+/* Mobil cihazlarda gizle */
+@media (max-width: 768px) {
+  .cursor-dot,
+  .cursor-outline {
+    display: none;
+  }
+}

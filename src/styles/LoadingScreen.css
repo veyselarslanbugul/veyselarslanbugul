@@ -1,0 +1,225 @@
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+.loading-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loading-content {
+  text-align: center;
+  max-width: 600px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.loading-title {
+  font-family: var(--font-primary);
+  font-size: 24px;
+  font-weight: 600;
+  color: #6c5ce7;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
+  animation: titlePulse 2s infinite;
+}
+
+@keyframes titlePulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+    color: #5a4cce;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Kod Editörü Stili */
+.code-editor {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  font-family: 'Consolas', 'Monaco', monospace;
+  text-align: left;
+  border: 1px solid #e0e0e0;
+}
+
+.editor-header {
+  background-color: #f5f5f5;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.red { background-color: #ff5f56; }
+.yellow { background-color: #ffbd2e; }
+.green { background-color: #27c93f; }
+
+.file-name {
+  margin-left: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.editor-body {
+  display: flex;
+  background-color: #ffffff;
+  min-height: 150px;
+}
+
+.line-numbers {
+  padding: 15px 10px;
+  background-color: #f8f9fa;
+  color: #999;
+  text-align: right;
+  user-select: none;
+  border-right: 1px solid #e0e0e0;
+  font-size: 14px;
+  min-width: 30px;
+}
+
+.line-numbers span {
+  display: block;
+  line-height: 1.5;
+}
+
+.code-content {
+  padding: 15px;
+  color: #333;
+  flex-grow: 1;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.code-content pre {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.code-content code {
+  color: #333;
+}
+
+.cursor {
+  display: inline-block;
+  width: 1px;
+  height: 18px;
+  background-color: #333;
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+  vertical-align: middle;
+}
+
+/* Yükleme Durumu */
+.loading-status {
+  width: 100%;
+  padding: 10px;
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 4px;
+  background-color: #eaeaea;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #6c5ce7;
+  border-radius: 2px;
+  width: 0;
+  transition: width 0.2s ease-out;
+}
+
+.loading-message {
+  font-size: 14px;
+  color: #666;
+  font-family: var(--font-secondary);
+  margin: 0;
+}
+
+/* Animasyonlar */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Kod renklendirme */
+.code-content .keyword { color: #6c5ce7; }
+.code-content .string { color: #27ae60; }
+.code-content .number { color: #e67e22; }
+.code-content .boolean { color: #3498db; }
+.code-content .comment { color: #95a5a6; }
+
+/* Karanlık mod uyumluluğu */
+body.dark-mode .loading-screen {
+  background-color: #121212;
+}
+
+body.dark-mode .code-editor {
+  background-color: #1e1e1e;
+  border-color: #333;
+}
+
+body.dark-mode .editor-header {
+  background-color: #252525;
+  border-color: #333;
+}
+
+body.dark-mode .file-name {
+  color: #ccc;
+}
+
+body.dark-mode .editor-body {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode .line-numbers {
+  background-color: #252525;
+  color: #777;
+  border-color: #333;
+}
+
+body.dark-mode .code-content code {
+  color: #e0e0e0;
+}
+
+body.dark-mode .cursor {
+  background-color: #e0e0e0;
+}
+
+body.dark-mode .progress-bar-container {
+  background-color: #333;
+}
+
+body.dark-mode .loading-message {
+  color: #ccc;
+}
