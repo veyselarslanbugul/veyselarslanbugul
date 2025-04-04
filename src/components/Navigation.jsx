@@ -5,7 +5,8 @@ const Navigation = ({ activeTab, setActiveTab }) => {
   const tabs = [
     { id: 'about', label: 'About' },
     { id: 'career', label: 'Career' },
-    { id: 'projects', label: 'Projects' }
+    { id: 'projects', label: 'Projects' },
+    { id: 'coding-daily', label: 'Coding Daily' }
   ];
 
   const handleTabClick = (tabId) => {

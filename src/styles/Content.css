@@ -447,3 +447,184 @@ body.dark-mode .job-card:hover .skill-tag {
     transform: translateY(0);
   }
 }
+
+/* Coding Daily section styles */
+.coding-daily-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.daily-entry {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 10px var(--shadow-color);
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+}
+
+.daily-entry:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px var(--shadow-color);
+  border-left: 3px solid var(--button-color);
+}
+
+.daily-entry h3 {
+  color: var(--text-color);
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.daily-entry:hover h3 {
+  color: var(--button-color);
+}
+
+.entry-date {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.code-snippet {
+  background-color: var(--code-bg);
+  border-radius: 8px;
+  padding: 15px;
+  margin: 15px 0;
+  overflow-x: auto;
+}
+
+.code-snippet pre {
+  margin: 0;
+}
+
+.code-snippet code {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  color: var(--code-text);
+  line-height: 1.5;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.tag {
+  background-color: var(--button-color-light);
+  color: var(--button-color);
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.tag:hover {
+  background-color: var(--button-color);
+  color: white;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .daily-entry {
+    padding: 20px;
+  }
+  
+  .code-snippet {
+    padding: 10px;
+  }
+  
+  .code-snippet code {
+    font-size: 0.8rem;
+  }
+}
+
+/* Egzersizler bölümü stilleri */
+.exercises-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.exercise-card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 10px var(--shadow-color);
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+}
+
+.exercise-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px var(--shadow-color);
+  border-left: 3px solid var(--button-color);
+}
+
+.exercise-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.exercise-header h3 {
+  color: var(--text-color);
+  font-size: 1.4rem;
+  margin: 0;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.exercise-card:hover .exercise-header h3 {
+  color: var(--button-color);
+}
+
+.exercise-level {
+  background-color: var(--button-color-light);
+  color: var(--button-color);
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.exercise-description {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.exercise-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.exercise-date {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .exercise-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .exercise-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
