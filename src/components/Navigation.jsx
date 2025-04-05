@@ -6,6 +6,7 @@ const Navigation = ({ activeTab, setActiveTab }) => {
     { id: 'about', label: 'About' },
     { id: 'career', label: 'Career' },
     { id: 'projects', label: 'Projects' },
+    { id: 'exercises', label: 'Exercises' },
     { id: 'coding-daily', label: 'Coding Daily' }
   ];
 

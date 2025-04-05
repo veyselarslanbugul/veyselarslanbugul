@@ -79,7 +79,19 @@ const Content = ({ activeTab }) => {
       {activeTab === 'projects' && (
         <div className="tab-content">
           <h2>Projects</h2>
-          <ProjectGallery />
+          <div className="empty-section">
+            <p>Projects will be added soon. Stay tuned!</p>
+          </div>
+        </div>
+      )}
+      
+      {activeTab === 'exercises' && (
+        <div className="tab-content">
+          <h2>Exercises</h2>
+          <div className="empty-section">
+            <p>This section will contain mini-projects and exercises created during my learning journey.</p>
+            <p>Check back soon for updates!</p>
+          </div>
         </div>
       )}
       
