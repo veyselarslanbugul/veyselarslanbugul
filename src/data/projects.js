@@ -58,6 +58,18 @@ const projects = [
     codeLink: "https://github.com/veyselarslanbugul/space-shooter",
     demoLink: "https://games.veyselarslanbugul.com/space-shooter",
     featured: true
+  },
+  {
+    id: 6,
+    title: "Personal Card",
+    category: "frontend",
+    type: "learning",
+    image: "/project-images/personal-card-logo.png",
+    description: "A simple, elegant personal card/profile component built with modern web technologies.",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    codeLink: "https://github.com/veyselarslanbugul/Exercises/personal-card",
+    demoLink: "https://personal-card-g217xxb34-veyselarslanbuguls-projects.vercel.app/",
+    featured: false
   }
 ];
 

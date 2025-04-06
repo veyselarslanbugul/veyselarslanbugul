@@ -1,9 +1,12 @@
 import React, { useState, useRef } from 'react';
 import '../styles/Content.css';
 import ProjectGallery from './ProjectGallery';
+import exercises from '../data/exercises';
 
 const Content = ({ activeTab }) => {
   const [showFullAbout, setShowFullAbout] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [exercisesPerPage] = useState(9); // Sayfa başına gösterilecek egzersiz sayısı
   const fullContentRef = useRef(null);
   
   const handleAboutClick = () => {
@@ -21,6 +24,15 @@ const Content = ({ activeTab }) => {
       }, 300);
     }
   };
+
+  // Sayfalama için hesaplamalar
+  const indexOfLastExercise = currentPage * exercisesPerPage;
+  const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
+  const currentExercises = exercises.slice(indexOfFirstExercise, indexOfLastExercise);
+  const totalPages = Math.ceil(exercises.length / exercisesPerPage);
+
+  // Sayfa değiştirme fonksiyonu
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
   
   return (
     <div className="content-container">
@@ -79,19 +91,69 @@ const Content = ({ activeTab }) => {
       {activeTab === 'projects' && (
         <div className="tab-content">
           <h2>Projects</h2>
-          <div className="empty-section">
-            <p>Projects will be added soon. Stay tuned!</p>
-          </div>
+          <ProjectGallery />
         </div>
       )}
       
       {activeTab === 'exercises' && (
         <div className="tab-content">
           <h2>Exercises</h2>
-          <div className="empty-section">
-            <p>This section will contain mini-projects and exercises created during my learning journey.</p>
-            <p>Check back soon for updates!</p>
-          </div>
+          {exercises.length === 0 ? (
+            <div className="empty-section">
+              <p>Henüz egzersiz eklenmedi. Yakında burada olacak!</p>
+            </div>
+          ) : (
+            <>
+              <div className="exercises-container">
+                {currentExercises.map((exercise) => (
+                  <div className="exercise-card" key={exercise.id}>
+                    <div className="exercise-content">
+                      <h3 className="exercise-title">{exercise.title}</h3>
+                      <p className="exercise-description">{exercise.description}</p>
+                      <div className="exercise-links">
+                        {exercise.githubLink && (
+                          <a href={exercise.githubLink} target="_blank" rel="noopener noreferrer" className="exercise-link">GitHub</a>
+                        )}
+                        {exercise.demoLink && (
+                          <a href={exercise.demoLink} target="_blank" rel="noopener noreferrer" className="exercise-link">Demo</a>
+                        )}
+                      </div>
+                      <div className="exercise-tags">
+                        {exercise.technologies.map((tech, index) => (
+                          <span key={index} className="exercise-tag">{tech}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Sayfalama */}
+              {totalPages > 1 && (
+                <div className="pagination">
+                  <button 
+                    onClick={() => paginate(currentPage - 1)} 
+                    disabled={currentPage === 1}
+                    className="pagination-button"
+                  >
+                    &laquo; Önceki
+                  </button>
+                  
+                  <div className="pagination-info">
+                    Sayfa {currentPage} / {totalPages}
+                  </div>
+                  
+                  <button 
+                    onClick={() => paginate(currentPage + 1)} 
+                    disabled={currentPage === totalPages}
+                    className="pagination-button"
+                  >
+                    Sonraki &raquo;
+                  </button>
+                </div>
+              )}
+            </>
+          )}
         </div>
       )}
       
